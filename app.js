@@ -18,4 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(regRoutes)
 
-app.listen(3000)
+app.listen(3000, function(){
+    console.log("Starting web server on: 3000")
+    console.log("Open browser and redirect to http://localhost:3000")
+})

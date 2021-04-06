@@ -80,7 +80,7 @@ git checkout main
 ```
 
 1. Create the database to work with by following this steps:
-    -
+    - connect to your
 
 2. Install all dependencies using
 ```
