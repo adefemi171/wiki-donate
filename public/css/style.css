@@ -15,7 +15,7 @@ h1 {
     position: absolute;
     margin: 0;
     font-size: 40px;
-    color: #fff;
+    color: rgb(196, 216, 15);
     z-index: 2;
     line-height: 83px;
 }
@@ -40,8 +40,8 @@ form {
 .banner {
     position: relative;
     height: 300px;
-    background-image: url("/uploads/media/default/0001/02/8070c999efd1a155ad843379a5508d16f544aeaf.jpeg");  
-    background-size: cover;
+    background-image: url("../img/wikiHeader.png");  
+    background-size: contain;
     display: flex;
     justify-content: center;
     align-items: center;
