@@ -113,6 +113,18 @@ input[type="date"]::-webkit-inner-spin-button {
     margin-top: 10px;
     text-align: center;
 }
+
+.btn-center {
+    margin: 0 auto;
+    width: 100vw;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+}
+
 button {
     width: 150px;
     padding: 10px;
