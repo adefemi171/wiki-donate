@@ -32,7 +32,7 @@ exports.postReview = async(req, res, next) => {
         comments
     } = req.body
 
-    console.log(formOfContact, formOfPayment, freqOfDonation, country)
+    // console.log(formOfContact, formOfPayment, freqOfDonation, country)
 
     const donation = parseFloat(amtOfDonation)
     let donationInUSD = 0
@@ -49,10 +49,10 @@ exports.postReview = async(req, res, next) => {
     }
 
     let updatedDonationUSD = 0
-    if (freqOfDonation === 'y' || freqOfDonation === 'ot'){
+    if (freqOfDonation === 'Yearly' || freqOfDonation === 'One-time'){
         updatedDonationUSD = donationInUSD
     }
-    else if (freqOfDonation === 'm'){
+    else if (freqOfDonation === 'Monthly'){
         updatedDonationUSD = donationInUSD * 12
     }
     return res.render('preview', {
@@ -96,7 +96,6 @@ exports.submit = async (req, res, next) => {
         amtOfDonation,
         comments
     } = req.body
-    console.log("i got here ",req.body);
 
 
     // SQL query TO INSERT INTO THAT TABLE
