@@ -5,15 +5,11 @@
 # App Details
 .
 
-The app will consist of:
-
-    └──
-
 
 
 # Proposed Stack
 
-HTML, CSS, JavaScript, Node 
+HTML, CSS, JavaScript, Node, SQL
 
 
 # Top-level directory layout
@@ -29,6 +25,8 @@ HTML, CSS, JavaScript, Node
                 ┗ 📜wikiHeader.png
         📦routes
             ┗ 📜registration.js
+        📦utils
+            ┗ 📜db.js
         📦views
             ┗ 📜home.html
             ┗ 📜preview.ejs
@@ -39,14 +37,14 @@ HTML, CSS, JavaScript, Node
         ┣ 📜package-lock.json
         ┣ 📜README.md
 
-        ┗ 
 
 ## Folder structure
 
-1. controllers:
-2. public:
-3. routes:
-4. views:
+1. controllers: contain the flow control logic
+2. public: contain styles and images use in the web design
+3. routes: contain route path for the application
+4. utils: folder that creates database connection
+5. views: contain different pages for the application
 
 
 # How to setup project and run locally
