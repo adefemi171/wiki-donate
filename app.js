@@ -1,7 +1,10 @@
 const path = require('path')
 
+const mysql = require("mysql");
 const express = require('express')
-const bodyParser = require('body-parser')
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express()
 
@@ -9,8 +12,12 @@ app.set('view engine', 'ejs')
 app.set('views', 'views')
 
 const regRoutes = require('./routes/registration')
+const connection = require("./util/db");
 
-app.use(bodyParser.urlencoded({
+connection
+
+app.use(express.json())
+app.use(express.urlencoded({
     extended: true
 }))
 

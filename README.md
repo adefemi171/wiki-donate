@@ -5,15 +5,11 @@
 # App Details
 .
 
-The app will consist of:
-
-    └──
-
 
 
 # Proposed Stack
 
-HTML, CSS, JavaScript, Node 
+HTML, CSS, JavaScript, Node, SQL
 
 
 # Top-level directory layout
@@ -29,6 +25,8 @@ HTML, CSS, JavaScript, Node
                 ┗ 📜wikiHeader.png
         📦routes
             ┗ 📜registration.js
+        📦utils
+            ┗ 📜db.js
         📦views
             ┗ 📜home.html
             ┗ 📜preview.ejs
@@ -39,14 +37,14 @@ HTML, CSS, JavaScript, Node
         ┣ 📜package-lock.json
         ┣ 📜README.md
 
-        ┗ 
 
 ## Folder structure
 
-1. controllers:
-2. public:
-3. routes:
-4. views:
+1. controllers: contain the flow control logic
+2. public: contain styles and images use in the web design
+3. routes: contain route path for the application
+4. utils: folder that creates database connection
+5. views: contain different pages for the application
 
 
 # How to setup project and run locally
@@ -78,15 +76,31 @@ The App is built on the ``` main ``` branch you will need to checkout to the app
 ```
 git checkout main
 ```
-
 1. Create the database to work with by following this steps:
-    - connect to your
+    - connect to your MySQL server from the terminal using
+    ```
+    mysql -u root -p
+    ```
+    - If you get an error that says <b>"Access denied for user 'root'@'localhost' "</b> follow this [link](https://phoenixnap.com/kb/access-denied-for-user-root-localhost) to get it resolved
+    - Once connected, create a DB using this command
+    ```
+    CREATE DATABASE userdb;
+    ```
+    - Hit the Enter key on your keyboard
+    - Exit from the MySQL using
+    ```
+    exit;
+    ```
+    - Hit the Enter key on your keyboard
 
-2. Install all dependencies using
+2. Create a .env file in the root directory using .env.example as a guide
+    - The only parameter that will be needed in the <b><i>.env</i></b> file is the DB_PASS after all the other parameters have been specified as in the <b><i>.env.example</i></b>
+
+3. Install all dependencies using
 ```
 npm install
 ```
-3. Start the nodemon
+4. Start the server
 ```
 npm start
 ```

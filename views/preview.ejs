@@ -28,9 +28,9 @@
 
   </head>
   <body>
-    <div class="testbox">
+    <div class="textbox">
       <form
-       action="/review"
+       action="/submit"
        method="POST"
       >
         <div class="banner">
@@ -62,7 +62,8 @@
           </div>
           <div class="item">
             <label for="country">Country<span>*</span></label>
-            <text>  <%= registrationDetails.country %></text>
+            <!-- <text>  <%= registrationDetails.country %></text> -->
+            <input type="text" name="country" id="country" value="<%= registrationDetails.country %>">
           </div>
           <div class="item">
             <label for="pcode">Postal Code<span>*</span></label>
@@ -73,26 +74,29 @@
             <input id="phone" type="text" name="phone" value="<%= registrationDetails.phone%>" readonly/>
           </div>
           <div class="item">
-            <label for="eaddress">Email Address<span>*</span></label>
-            <input id="eaddress" type="text" name="eadress" value="<%= registrationDetails.eaddress%>" readonly/>
+            <label for="email">Email Address<span>*</span></label>
+            <input id="email" type="text" name="email" value="<%= registrationDetails.email%>" readonly/>
           </div>
           <div class="item">
             <label for="form_of_contact">Preferred form of Contact<span>*</span></label>
-            <text> <%= registrationDetails.formOfContact %> </text>
+            <!-- <text> <%= registrationDetails.formOfContact %> </text> -->
+            <input type="text" name="formOfContact" id="formOfContact" value="<%= registrationDetails.formOfContact %>">
           </div>
           <div class="item">
             <label for="form_of_payment">Preferred form of Payment<span>*</span></label>
-            <text>  <%= registrationDetails.formOfPayment %> </text>
+            <!-- <text>  <%= registrationDetails.formOfPayment %> </text> -->
+            <input type="text" name="formOfPayment" id="formOfPayment" value="<%= registrationDetails.formOfPayment %>">
           </div>
           <!-- Drop down frequency of donation-->
           <div class="item">
             <label for="freqOfDonation">Frequency of Donation<span>*</span>
-              <text>  <%= registrationDetails.freqOfDonation %> </text>
+              <!-- <text>  <%= registrationDetails.freqOfDonation %> </text> -->
+              <input type="text" name="freqOfDonation" id="freqOfDonation" value="<%= registrationDetails.freqOfDonation %>">
             </label>
           </div>
           
           <div class="item">
-            <label for="amtOfDonation">Amount of Donation<span>*</span></label>
+            <label for="amtOfDonation">Amount of Donation (USD Annual)<span>*</span></label>
             <input 
               id="amtOfDonation"
               name="amtOfDonation"
@@ -113,8 +117,15 @@
         <div class="btn-block">
           <button type="submit">Submit</button>
         </div>
+      </form>
+    </div>
+    <div class="textbox">
+      <form
+       action="/cancel"
+       method="GET"
+       >
         <div class="btn-block">
-          <button type="cancel">Cancel</button>
+          <button >Cancel</button>
         </div>
       </form>
     </div>
