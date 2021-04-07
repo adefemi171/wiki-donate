@@ -46,7 +46,7 @@
           </div>
           <div class="item">
             <label for="fname">First Name<span>*</span></label>
-            <input id="fname" type="text" name="fname" />
+            <input id="fname" type="text" name="fname" required/>
           </div>
           <div class="item">
             <label for="street">Street Address<span>*</span></label>
@@ -268,18 +268,18 @@
           </div>
           <div class="item">
             <label for="phone">Phone Number<span>*</span></label>
-            <input id="phone" type="text" name="phone" />
+            <input id="phone" type="text" name="phone" required/>
           </div>
           <div class="item">
             <label for="email">Email Address<span>*</span></label>
-            <input id="email" type="email"   name="email" />
+            <input id="email" type="email"   name="email" required/>
           </div>
           <div class="item">
             <label for="formOfContact">Preferred form of contact<span>*</span></label>
             <select name=formOfContact>
               <option selected value="" disabled selected></option>
-              <option value="ph">Phone</option>
-              <option value="em">Email</option>
+              <option value="Phone">Phone</option>
+              <option value="Email">Email</option>
             </select>
           </div>
           <div class="item">
@@ -294,11 +294,11 @@
           <!-- Drop down frequency of donation-->
           <div class="item">
             <label for="freq_of_donation">Frequency of Donation<span>*</span></label>
-            <select name="freqOfDonation">
+            <select name="freqOfDonation" required>
               <option selected value="" disabled selected></option>
-              <option value="m" >Monthly</option>
-              <option value="y">Yearly</option>
-              <option value="ot">One-time</option>
+              <option value="Monthly" >Monthly</option>
+              <option value="Yearly">Yearly</option>
+              <option value="One-time">One-time</option>
             </select>
           </div>
           
@@ -311,6 +311,7 @@
               name="amtOfDonation"
               data-type="currency"
               placeholder="0.00"
+              required
             />
            
           </div>
