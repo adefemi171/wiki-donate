@@ -24,7 +24,7 @@ connection.connect(function (err) {
 
     console.log('connected as id ' + connection.threadId);
 
-    const sql = "CREATE TABLE IF NOT EXISTS user (lname VARCHAR(50), fname VARCHAR(50), street VARCHAR(25), city VARCHAR(25),state VARCHAR(25),country VARCHAR(25),pcode VARCHAR(10),phone VARCHAR(13),eaddress VARCHAR(30),formOfContact VARCHAR(10),formOfPayment VARCHAR(4),freqOfDonation VARCHAR(10),amtOfDonation VARCHAR(255), comments VARCHAR(255))"
+    const sql = "CREATE TABLE IF NOT EXISTS user (lname VARCHAR(50), fname VARCHAR(50), street VARCHAR(25), city VARCHAR(25),state VARCHAR(25),country VARCHAR(25),pcode VARCHAR(10),phone VARCHAR(13),email VARCHAR(30),formOfContact VARCHAR(10),formOfPayment VARCHAR(4),freqOfDonation VARCHAR(10),amtOfDonation VARCHAR(255), comments VARCHAR(255))";
     connection.query(sql, function (err, result) {
         if (err) throw err;
         console.log(result, "Table created");

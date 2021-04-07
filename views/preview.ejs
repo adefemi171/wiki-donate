@@ -62,7 +62,8 @@
           </div>
           <div class="item">
             <label for="country">Country<span>*</span></label>
-            <text>  <%= registrationDetails.country %></text>
+            <!-- <text>  <%= registrationDetails.country %></text> -->
+            <input type="text" name="country" id="country" value="<%= registrationDetails.country %>">
           </div>
           <div class="item">
             <label for="pcode">Postal Code<span>*</span></label>
@@ -78,16 +79,19 @@
           </div>
           <div class="item">
             <label for="form_of_contact">Preferred form of Contact<span>*</span></label>
-            <text> <%= registrationDetails.formOfContact %> </text>
+            <!-- <text> <%= registrationDetails.formOfContact %> </text> -->
+            <input type="text" name="formOfContact" id="formOfContact" value="<%= registrationDetails.formOfContact %>">
           </div>
           <div class="item">
             <label for="form_of_payment">Preferred form of Payment<span>*</span></label>
-            <text>  <%= registrationDetails.formOfPayment %> </text>
+            <!-- <text>  <%= registrationDetails.formOfPayment %> </text> -->
+            <input type="text" name="formOfPayment" id="formOfPayment" value="<%= registrationDetails.formOfPayment %>">
           </div>
           <!-- Drop down frequency of donation-->
           <div class="item">
             <label for="freqOfDonation">Frequency of Donation<span>*</span>
-              <text>  <%= registrationDetails.freqOfDonation %> </text>
+              <!-- <text>  <%= registrationDetails.freqOfDonation %> </text> -->
+              <input type="text" name="freqOfDonation" id="freqOfDonation" value="<%= registrationDetails.freqOfDonation %>">
             </label>
           </div>
           

@@ -100,7 +100,7 @@ exports.submit = async (req, res, next) => {
 
 
     // SQL query TO INSERT INTO THAT TABLE
-    const sql = "INSERT INTO user (lname, fname, street, city, state, country, pcode, phone, email, formOfContact, formOfPayment, freqOfDonation, amtOfDonation, comments) VALUES ?";
+    const sql = "INSERT INTO user (lname, fname, street, city, state, country, pcode, phone, email, formOfContact, formOfPayment, freqOfDonation, amtOfDonation, comments) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)";
     const values = [lname,
         fname,
         street,
@@ -115,7 +115,7 @@ exports.submit = async (req, res, next) => {
         freqOfDonation,
         amtOfDonation,
         comments]
-    await connection.query(sql, [values], function (err, result) {
+    await connection.query(sql, values, function (err, result) {
         if (err) throw err;
         console.log("Number of records inserted: " + result.affectedRows);
         res.redirect('/confirmation')
