@@ -1,4 +1,6 @@
 const path = require('path')
+const axios = require('axios')
+const connection = require("../util/db");
 
 exports.getHome = (req, res, next) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'home.html'))
@@ -12,8 +14,7 @@ exports.getReview = (req, res, next) => {
     res.render('preview')
 }
 
-exports.postReview = (req, res, next) => {
-    console.log(req.body)
+exports.postReview = async(req, res, next) => {
     const {
         lname,
         fname,
@@ -23,13 +24,37 @@ exports.postReview = (req, res, next) => {
         country,
         pcode,
         phone,
-        eaddress,
+        email,
         formOfContact,
         formOfPayment,
         freqOfDonation,
         amtOfDonation,
         comments
     } = req.body
+
+    console.log(formOfContact, formOfPayment, freqOfDonation, country)
+
+    const donation = parseFloat(amtOfDonation)
+    let donationInUSD = 0
+
+    if (formOfPayment === 'usd'){
+        donationInUSD = donation
+    }
+    else if (formOfPayment === 'btc'){
+        const response = await axios.get('https://blockchain.info/ticker')
+        donationInUSD = response.data.USD.last * donation
+    }
+    else if (formOfPayment === 'euro'){
+        donationInUSD = donation * 1.19
+    }
+
+    let updatedDonationUSD = 0
+    if (freqOfDonation === 'y' || freqOfDonation === 'ot'){
+        updatedDonationUSD = donationInUSD
+    }
+    else if (freqOfDonation === 'm'){
+        updatedDonationUSD = donationInUSD * 12
+    }
     return res.render('preview', {
         registrationDetails: {
             lastName: lname,
@@ -40,12 +65,68 @@ exports.postReview = (req, res, next) => {
             country: country,
             pcode: pcode,
             phone: phone,
-            eaddress: eaddress,
+            email: email,
             formOfContact: formOfContact,
             formOfPayment: formOfPayment,
             freqOfDonation: freqOfDonation,
-            amtOfDonation: amtOfDonation,
+            amtOfDonation: updatedDonationUSD,
             comments: comments
         }
     })
+}
+
+
+
+
+
+exports.submit = async (req, res, next) => {
+    const {
+        lname,
+        fname,
+        street,
+        city,
+        state,
+        country,
+        pcode,
+        phone,
+        email,
+        formOfContact,
+        formOfPayment,
+        freqOfDonation,
+        amtOfDonation,
+        comments
+    } = req.body
+    console.log("i got here ",req.body);
+
+
+    // SQL query TO INSERT INTO THAT TABLE
+    const sql = "INSERT INTO user (lname, fname, street, city, state, country, pcode, phone, email, formOfContact, formOfPayment, freqOfDonation, amtOfDonation, comments) VALUES ?";
+    const values = [lname,
+        fname,
+        street,
+        city,
+        state,
+        country,
+        pcode,
+        phone,
+        email,
+        formOfContact,
+        formOfPayment,
+        freqOfDonation,
+        amtOfDonation,
+        comments]
+    await connection.query(sql, [values], function (err, result) {
+        if (err) throw err;
+        console.log("Number of records inserted: " + result.affectedRows);
+        res.redirect('/confirmation')
+
+    });
+}
+
+exports.confirmation = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'confirm.html'))
+}
+
+exports.cancel = (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'views', 'cancel.html'))
 }

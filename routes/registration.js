@@ -8,8 +8,14 @@ router.get('/', regController.getHome)
 
 router.get('/reg', regController.getRegister)
 
-router.get('/review', regController.getReview)
+router.get('/preview', regController.getReview)
 
-router.post('/review', regController.postReview)
+router.post('/preview', regController.postReview)
+
+router.post('/submit', regController.submit);
+
+router.get('/confirmation', regController.confirmation);
+
+router.get('/cancel', regController.cancel);
 
 module.exports = router

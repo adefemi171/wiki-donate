@@ -28,9 +28,9 @@
 
   </head>
   <body>
-    <div class="testbox">
+    <div class="textbox">
       <form
-       action="/review"
+       action="/submit"
        method="POST"
       >
         <div class="banner">
@@ -73,8 +73,8 @@
             <input id="phone" type="text" name="phone" value="<%= registrationDetails.phone%>" readonly/>
           </div>
           <div class="item">
-            <label for="eaddress">Email Address<span>*</span></label>
-            <input id="eaddress" type="text" name="eadress" value="<%= registrationDetails.eaddress%>" readonly/>
+            <label for="email">Email Address<span>*</span></label>
+            <input id="email" type="text" name="email" value="<%= registrationDetails.email%>" readonly/>
           </div>
           <div class="item">
             <label for="form_of_contact">Preferred form of Contact<span>*</span></label>
@@ -92,7 +92,7 @@
           </div>
           
           <div class="item">
-            <label for="amtOfDonation">Amount of Donation<span>*</span></label>
+            <label for="amtOfDonation">Amount of Donation (USD Annual)<span>*</span></label>
             <input 
               id="amtOfDonation"
               name="amtOfDonation"
@@ -113,8 +113,15 @@
         <div class="btn-block">
           <button type="submit">Submit</button>
         </div>
+      </form>
+    </div>
+    <div class="textbox">
+      <form
+       action="/cancel"
+       method="GET"
+       >
         <div class="btn-block">
-          <button type="cancel">Cancel</button>
+          <button >Cancel</button>
         </div>
       </form>
     </div>

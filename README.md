@@ -78,15 +78,31 @@ The App is built on the ``` main ``` branch you will need to checkout to the app
 ```
 git checkout main
 ```
-
 1. Create the database to work with by following this steps:
-    - connect to your
+    - connect to your MySQL server from the terminal using
+    ```
+    mysql -u root -p
+    ```
+    - If you get an error that says <b>"Access denied for user 'root'@'localhost' "</b> follow this [link](https://phoenixnap.com/kb/access-denied-for-user-root-localhost) to get it resolved
+    - Once connected, create a DB using this command
+    ```
+    CREATE DATABASE userdb;
+    ```
+    - Hit the Enter key on your keyboard
+    - Exit from the MySQL using
+    ```
+    exit;
+    ```
+    - Hit the Enter key on your keyboard
 
-2. Install all dependencies using
+2. Create a .env file in the root directory using .env.example as a guide
+    - The only parameter that will be needed in the <b><i>.env</i></b> file is the DB_PASS after all the other parameters have been specified as in the <b><i>.env.example</i></b>
+
+3. Install all dependencies using
 ```
 npm install
 ```
-3. Start the nodemon
+4. Start the server
 ```
 npm start
 ```
